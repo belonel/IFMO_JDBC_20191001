@@ -5,6 +5,7 @@ import com.efimchick.ifmo.web.jdbc.domain.Department;
 import com.efimchick.ifmo.web.jdbc.domain.Employee;
 import com.efimchick.ifmo.web.jdbc.domain.FullName;
 import com.efimchick.ifmo.web.jdbc.domain.Position;
+import jdk.jfr.events.ExceptionThrownEvent;
 
 import java.awt.print.PrinterAbortException;
 import java.math.BigDecimal;
@@ -48,6 +49,12 @@ public class DaoFactory {
             return null;
         }
     }
+
+    /*private boolean deleteDepartmentWithTheSameId (Department department) {
+        String request = "";
+        executeSqlString(request);
+        return true;
+    }*/
     //------------
 
     private Employee getEmployeeFromRow(ResultSet rs) {
@@ -202,6 +209,7 @@ public class DaoFactory {
                     prepStat.setString(2, department.getName());
                     prepStat.setString(3, department.getLocation());
 
+                    executeSqlString("DELETE FROM department WHERE id = " + department.getId().toString());
                     prepStat.executeUpdate();
 
                     return department;
