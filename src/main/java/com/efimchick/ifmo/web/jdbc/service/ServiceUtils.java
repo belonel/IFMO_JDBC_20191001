@@ -18,7 +18,7 @@ public class ServiceUtils {
 
     static String makePagingSQLRequest(String oldrequest, String sort, Paging paging) {
         int size = paging.itemPerPage;
-        int page = paging.page;
+        int page = paging.page - 1;
 
         String request = oldrequest;
 //        if (sort != null)

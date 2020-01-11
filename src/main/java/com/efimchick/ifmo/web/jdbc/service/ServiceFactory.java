@@ -15,7 +15,7 @@ public class ServiceFactory {
 
             return ServiceUtils.getEmployeeResultListByRequest(
                     ServiceUtils.makePagingSQLRequest(request, sort, paging),
-                    1
+                    0
             );
         } catch (SQLException e) {
             System.out.println(e);
@@ -37,7 +37,7 @@ public class ServiceFactory {
 
             @Override
             public List<Employee> getAllSortBySalary(Paging paging) {
-                return getListEmploye("SELECT * FROM EMPLOYEE","BY SALARY", paging);
+                return getListEmploye("SELECT * FROM EMPLOYEE","SALARY", paging);
             }
 
             @Override
@@ -79,7 +79,7 @@ public class ServiceFactory {
             public Employee getWithDepartmentAndFullManagerChain(Employee employee) {
                 try {
                     return ServiceUtils.getEmployeeResultListByRequest(
-                            "SELECT * FROM EMPLOYEE",
+                            "SELECT * FROM EMPLOYEE WHERE id = " + employee.getId(),
                             -5
                     ).get(0);
                 } catch (SQLException e) {
