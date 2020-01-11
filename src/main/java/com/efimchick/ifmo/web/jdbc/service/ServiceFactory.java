@@ -4,7 +4,6 @@ import com.efimchick.ifmo.web.jdbc.domain.Department;
 import com.efimchick.ifmo.web.jdbc.domain.Employee;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceFactory {
