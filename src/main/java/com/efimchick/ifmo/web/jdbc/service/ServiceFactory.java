@@ -47,7 +47,7 @@ public class ServiceFactory {
 
             @Override
             public List<Employee> getByDepartmentSortByHireDate(Department department, Paging paging) {
-                return getListEmploye("SELECT * FROM EMPLOYEE WHERE DEPARTMENT = " + department.getId().toString(), "HIREDATE DESC", paging);
+                return getListEmploye("SELECT * FROM EMPLOYEE WHERE DEPARTMENT = " + department.getId().toString(), "HIREDATE", paging);
             }
 
             @Override

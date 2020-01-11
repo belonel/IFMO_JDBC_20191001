@@ -22,7 +22,7 @@ public class ServiceUtils {
 
         String request = oldrequest;
 //        if (sort != null)
-        request += " ORDER BY " + sort;
+        request += " ORDER BY " + sort + " ASC";
 //        if (size != null)
         request += " LIMIT " + size;
 //        if (page != null && size != null)
